@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'myApp/base.html' %}
+{% load crispy_forms_tags %}
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+        {% block content %}
+<h1>{{ user.get_username}}</h1>
+        <h> Your Fweets:</h>
+<div center>
+                      <div style="border:0px solid black;width:100%;height:700px;overflow:scroll;">
+                        {% for fweet in fweet_list %}
+                          {%if fweet.user == user%}
+                            <div class = "card">
+                                <div class="card-header">
+                                    {{fweet.user}}
+                                </div>
+                                <div class="card-body">
+                                <p class="card-text">
+                                    {{fweet.content}}
+                                </p>
+                                </div>
+                            </div>
+                        {%endif%}
+                    <br>
+                {% endfor %}
+                    </div>
+</div>
+{% endblock %}
+</body>
+</html>

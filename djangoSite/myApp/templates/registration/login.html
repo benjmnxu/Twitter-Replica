@@ -1,0 +1,14 @@
+  {% extends 'myApp/base.html' %}
+
+
+  {% block title%} Fwitter {%endblock%}
+  {% load crispy_forms_tags %}
+
+  {% block content %}
+    <form method="post" class="from-group">
+      {% csrf_token %}
+      {{form|crispy}}
+      <button type ="submit" class = "btn btn-success">Login</button>
+    <p> New to Fwitter? <a href = "/register"> Sign up</a></p>
+    </form>
+  {% endblock %}
